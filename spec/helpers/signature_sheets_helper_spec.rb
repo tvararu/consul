@@ -11,6 +11,7 @@ describe SignatureSheetsHelper do
   describe "#required_fields_to_verify_text_help with remote_census active" do
     before do
       Setting["feature.remote_census"] = true
+      Setting["remote_census.request.date_of_birth"] = nil
     end
 
     it "returns text help when date_of_birth and postal_code are not required" do

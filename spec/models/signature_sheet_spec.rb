@@ -115,6 +115,7 @@ describe SignatureSheet do
     context "with remote census active" do
       before do
         Setting["feature.remote_census"] = true
+        Setting["remote_census.request.date_of_birth"] = nil
       end
 
       it "creates signatures for each group with document_number" do
