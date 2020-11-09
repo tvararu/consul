@@ -11,6 +11,9 @@ class Setting
         "contact.phone_1": "+34981542300",
         "contact.phone_2": "+34981542357",
         "facebook_handle": "concellosantiago",
+        "feature.facebook_login": false,
+        "feature.google_login": false,
+        "feature.twitter_login": false,
         "org_name": "Portal de participación ciudadana - Concello de Santiago de Compostela",
         "twitter_handle": "pazoderaxoi",
         "youtube_handle": "channel/UCSrcC2UgDHIb80vVVRtvoDw"
