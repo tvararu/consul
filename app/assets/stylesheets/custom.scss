@@ -532,7 +532,6 @@ table {
     color: $black;
   }
 }
-
 // 04. List participation (participation.scss)
 // ----------------------
 
@@ -554,6 +553,10 @@ table {
 .communities-show {
   .truncate {
     background: $background;
+  }
+
+  .supports .button-support {
+    color: $background;
   }
 }
 
