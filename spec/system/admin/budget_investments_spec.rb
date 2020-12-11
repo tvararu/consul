@@ -1821,17 +1821,14 @@ describe "Admin budget investments" do
 
       within("#js-columns-selector-wrapper") do
         uncheck "Title"
-        uncheck "Price"
         check "Author"
       end
 
       within("table.column-selectable") do
         expect(page).not_to have_content("Title")
-        expect(page).not_to have_content("Price")
         expect(page).to have_content("Author")
 
         expect(page).not_to have_content(investment.title)
-        expect(page).not_to have_content(investment.formatted_price)
         expect(page).to have_content("Jon Doe")
       end
     end
@@ -1845,7 +1842,6 @@ describe "Admin budget investments" do
 
       within("#js-columns-selector-wrapper") do
         uncheck "Title"
-        uncheck "Price"
         uncheck "Valuation Group / Valuator"
         check "Author"
       end
@@ -1855,7 +1851,7 @@ describe "Admin budget investments" do
       cookie_value = columns_cookie[:value]
 
       expect(cookie_value).to eq("id,supports,admin,geozone," +
-        "feasibility,valuation_finished,visible_to_valuators,selected,incompatible,author")
+        "feasibility,price,valuation_finished,visible_to_valuators,selected,incompatible,author")
 
       visit admin_budget_budget_investments_path(budget)
 
@@ -1863,7 +1859,7 @@ describe "Admin budget investments" do
       columns_cookie = cookies.find { |cookie| cookie[:name] == "investments-columns" }
       cookie_value = columns_cookie[:value]
 
-      expect(cookie_value).to eq("id,supports,admin,geozone,feasibility,valuation_finished," +
+      expect(cookie_value).to eq("id,supports,admin,geozone,feasibility,price,valuation_finished," +
         "visible_to_valuators,selected,incompatible,author")
     end
 

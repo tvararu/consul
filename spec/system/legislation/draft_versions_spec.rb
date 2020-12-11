@@ -174,7 +174,13 @@ describe "Legislation Draft Versions" do
     scenario "Create" do
       visit legislation_process_draft_version_path(draft_version.process, draft_version)
 
-      page.find(:css, ".legislation-annotatable").double_click
+      element = find(:css, ".legislation-annotatable")
+      element.click
+
+      page.driver.browser.action.move_to(element.native, 0, 150)
+                                .click_and_hold
+                                .move_to(element.native, 0, 200).release.perform
+
       page.find(:css, ".annotator-adder button").click
       page.click_button "Publish Comment"
       expect(page).to have_content "Comment can't be blank"
