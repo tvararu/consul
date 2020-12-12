@@ -41,3 +41,13 @@ I18n.available_locales.each do |locale|
     )
   end
 end
+
+header_widget_card = Widget::Card.new(label: nil, link_url: "http://consulproject.org/", header: true)
+
+I18n.available_locales.each do |locale|
+  I18n.with_locale(locale) do
+    header_widget_card.update!(title: "Consul Santiago de Compostela",
+                              description: "Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters.",
+                              link_text: "VOTAR")
+  end
+end

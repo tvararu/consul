@@ -4,6 +4,7 @@ describe "Cards" do
   before do
     admin = create(:administrator).user
     login_as(admin)
+    Widget::Card.delete_all
   end
 
   scenario "Create", :js do
