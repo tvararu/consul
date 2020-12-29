@@ -233,6 +233,7 @@ describe "Emails" do
       expect(email).to have_body_text(direct_message.body)
       expect(email).to have_body_text(direct_message.sender.name)
       expect(email).to have_body_text(/#{user_path(direct_message.sender_id)}/)
+      expect(email).to have_body_text(edit_unsubscribe_path(receiver.unsubscribe_hash))
     end
 
     scenario "Sender email" do
