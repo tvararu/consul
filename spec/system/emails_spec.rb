@@ -491,6 +491,8 @@ describe "Emails" do
       expect(email).to have_subject("This is a different subject")
       expect(email).to deliver_from("no-reply@consul.dev")
       expect(email.body.encoded).to include("This is a different body")
+      expect(email).to have_body_text("To stop receiving these emails change your settings in")
+      expect(email).to have_body_text(edit_unsubscribe_path(user_with_newsletter_in_segment_2.unsubscribe_hash))
     end
   end
 

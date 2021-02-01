@@ -135,3 +135,5 @@ en:
       text_9: "You will also find this new recommended dissemination action..."
       text_10: "You sure have more resources to use!"
       dashboard_button: "Go ahead, discover them!"
+    newsletter:
+      unsubscribe: Unsubscribe

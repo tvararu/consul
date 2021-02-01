@@ -135,3 +135,5 @@ es:
       text_9: "También encontrarás esta nueva acción de difusión recomendada…"
       text_10: "¡Seguro que tienes más recursos pendientes de usar!"
       dashboard_button: "Adelante, ¡descúbrelos!"
+    newsletter:
+      unsubscribe: Desuscribirse
