@@ -2,6 +2,7 @@ require "rails_helper"
 
 describe "Localization" do
   scenario "Wrong locale" do
+    Widget::Card.delete_all
     I18n.with_locale(:es) do
       create(:widget_card, title: "Bienvenido a CONSUL",
                            description: "Software libre para la participación ciudadana.",
