@@ -16,7 +16,7 @@ ro:
       title: Contul meu
       user_permission_debates: Participă la dezbateri
       user_permission_info: Cu contul dumneavoastră puteți...
-      user_permission_proposal: Crează noi propuneri
+      user_permission_proposal: Creează noi propuneri
       user_permission_support_proposal: Sprijină propuneri
       user_permission_title: Participare
       user_permission_verify: Pentru a efectua toate acțiunile, verificați contul.
@@ -142,7 +142,7 @@ ro:
       form:
         submit_button: Începe o dezbatere
       info: Dacă doriți să faceți o propunere, aceasta este secțiunea greșită, introduceți %{info_link}.
-      info_link: crează o propunere nouă
+      info_link: creează o propunere nouă
       more_info: Mai multe informații
       recommendation_four: Bucurați-vă de acest spațiu, de vocile care îl umplu, este și al vostru.
       recommendation_one: Nu folosiți majuscule pentru titlul dezbaterii sau pentru propoziții întregi. Pe internet, acest lucru este considerat strigăt. Și nimănui nu-i place să-i fie strigat în față.
@@ -292,7 +292,7 @@ ro:
   map:
     title: "Districte"
     proposal_for_district: "Începeți o propunere pentru districtul dumneavoastră"
-    start_proposal: Crează propunere
+    start_proposal: Creează propunere
   omniauth:
     facebook:
       sign_in: Conectează-te cu Facebook
@@ -320,7 +320,7 @@ ro:
   proposals:
     create:
       form:
-        submit_button: Crează propunere
+        submit_button: Creează propunere
     created:
       title: Felicitări! Ați făcut primul pas.
       motivation: "Este important să pregătiți campania de lansare pentru ca propunerea dvs. să aibă succes. Primele zile sunt decisive."
@@ -401,7 +401,7 @@ ro:
         other: " conține termenii <strong>'%{search_term}'</strong>"
       select_order: Ordonează după
       select_order_long: "Vizionați propuneri conform:"
-      start_proposal: Crează propunere
+      start_proposal: Creează propunere
       title: Propuneri
       top: Top săptămânal
       top_link_proposals: Cea mai susținută propunere după categorie
@@ -414,13 +414,13 @@ ro:
         description: Propunerile cetățenilor sunt o oportunitate pentru vecini și grupuri de a decide direct cum vor să fie societatea lor, după ce au primit suficient sprijin și s-au prezentat la votul cetățenilor.
     new:
       form:
-        submit_button: Crează propunere
+        submit_button: Creează propunere
       more_info: Cum funcționează propunerile cetățenilor?
       recommendation_one: Nu scrieți titlul subiectului sau propozițiile întregi cu majuscule. Pe internet acest lucru este considerat strigat. Și nimănui nu îi place să i se țipe în față.
       recommendation_three: Bucurați-vă de acest spațiu, de vocile care îl umplu, este și al vostru.
       recommendation_two: Orice dezbatere sau comentariu care sugerează acțiuni ilegale vor fi șterse, precum și cele care intenționează să saboteze spațiile de dezbatere. Orice altceva este permis.
       recommendations_title: Recomandări pentru crearea o propunere
-      start_new: Crează propunere nouă
+      start_new: Creează propunere nouă
     notice:
       retired: Propunere retrasă
       published: Propunerea a fost publicată
@@ -559,7 +559,7 @@ ro:
     polls:
       index:
         title: Sondaje
-        create: Crează sondaj
+        create: Creează sondaj
         count:
           one: Ați creat %{count} sondaj.
           few: Ați creat %{count} sondaje.
@@ -568,7 +568,7 @@ ro:
         additiontal_information: Informații suplimentare
       new:
         title: Sondaj nou
-        submit: Crează sondaj
+        submit: Creează sondaj
       edit:
         submit: Actualizează sondaj
       poll:
@@ -947,7 +947,7 @@ ro:
       title: Participă
       user_permission_debates: Participă la dezbateri
       user_permission_info: Cu contul dumneavoastră puteți...
-      user_permission_proposal: Crează noi propuneri
+      user_permission_proposal: Creează noi propuneri
       user_permission_support_proposal: Sprijină propunerile*
       user_permission_verify: "Pentru a efectua toate acțiunile, verificați-vă contul."
       user_permission_verify_info: "* Numai pentru utilizatorii aflați pe recensământ."

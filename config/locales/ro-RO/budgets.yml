@@ -123,7 +123,7 @@ ro:
           check_ballot_link: "verifică și confirmă votul"
           zero: Nu ați votat niciun proiect de investiții în acest grup.
           verified_only: "Pentru a crea o nouă investiție bugetară %{verify}."
-          create: "Crează un buget de investiții"
+          create: "Creează un buget de investiții"
           not_logged_in: "Pentru a crea un nou buget de investiții trebuie să %{sign_in} sau %{sign_up}."
         filter: "Filtrează proiectele după"
         filters:
