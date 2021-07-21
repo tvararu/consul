@@ -45,6 +45,7 @@ cd consul
 # add the composer-specific database config
 cp config/database-docker.yml.example config/database.yml
 cp config/secrets.yml.example config/secrets.yml
+cp .env.example .env
 # build the required images
 docker-compose build
 # choose a database password and spawn the containers
