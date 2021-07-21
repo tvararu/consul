@@ -34,12 +34,10 @@ services:
       - "3000:3000"
     # map our application source code, in full, to the application root of our container
     volumes:
-      - .:/var/www/consul:delegated
+      - ./:/var/www/consul:delegated
       - bundle:/usr/local/bundle:delegated
-      - "$SSH_AUTH_SOCK:/tmp/agent.sock"
     environment:
       - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
-      - SSH_AUTH_SOCK=/tmp/agent.sock
 volumes:
   docker-example-postgres: {}
   bundle: {}

@@ -38,6 +38,35 @@ You can access the main website of the project at [http://consulproject.org](htt
 
 **NOTE**: For more detailed instructions check the [docs](https://docs.consulproject.org)
 
+### a. using docker-compose (recommended)
+```bash
+git clone https://github.com/consul/consul.git
+cd consul
+# add the composer-specific database config
+cp config/database-docker.yml.example config/database.yml
+cp config/secrets.yml.example config/secrets.yml
+# build the required images
+docker-compose build
+# choose a database password and spawn the containers
+POSTGRES_PASSWORD="8p0V1giz&naNz*i6" docker-compose up
+# connect to the app container and prepare the database
+docker exec -it consul_app_1 bash -li
+bin/rake db:create
+bin/rake db:migrate
+bin/rake db:dev_seed
+RAILS_ENV=test rake db:setup
+# ready to use -- by default, port 3000 is exposed on host
+```
+#### Troubleshooting
+```bash
+# Sometimes a lockfile prevents the containers to be restarted
+# in this case, it is safe to just remove it
+host$ rm tmp/pids/server.pid
+# If the cache gets corrupted simply clean it
+host$ rm -rf tmp/cache/*
+```
+
+### b. on host
 Prerequisites: install git, Ruby 2.6.7, CMake, pkg-config, shared-mime-info, Node.js and PostgreSQL (>=9.5).
 
 ```bash
@@ -61,6 +90,7 @@ bin/rails s
 Run the tests with:
 
 ```bash
+# Optionally; it takes a long time to complete
 bin/rspec
 ```
 
