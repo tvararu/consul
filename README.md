@@ -49,7 +49,7 @@ cp .env.example .env
 # build the required images
 docker-compose build
 # choose a database password and spawn the containers
-POSTGRES_PASSWORD="8p0V1giz&naNz*i6" docker-compose up
+docker-compose up
 # connect to the app container and prepare the database
 docker exec -it consul_app_1 bash -li
 bin/rake db:create
