@@ -125,3 +125,34 @@
   font-weight: 500;
   font-style: normal;
 }
+
+// 04. Titillium Web
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@font-face {
+  font-family: "Titillium Web";
+  src: font-url("titillium-web/TitilliumWeb-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Titillium Web";
+  src: font-url("titillium-web/TitilliumWeb-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Titillium Web";
+  src: font-url("titillium-web/TitilliumWeb-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Titillium Web";
+  src: font-url("titillium-web/TitilliumWeb-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
