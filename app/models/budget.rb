@@ -20,7 +20,7 @@ class Budget < ApplicationRecord
     end
   end
 
-  CURRENCY_SYMBOLS = %w[€ $ £ ¥].freeze
+  CURRENCY_SYMBOLS = %w[€ $ £ ¥ RON].freeze
   VOTING_STYLES = %w[knapsack approval].freeze
 
   validates_translation :name, presence: true
