@@ -1,5 +1,5 @@
 name: Docker
-on: [pull_request]
+on: [pull_request, workflow_dispatch, push]
 
 jobs:
   build:
@@ -19,3 +19,11 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: false
+
+      - name: Login to docker registry
+        if: github.ref == 'refs/heads/main'
+        run: docker login -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}
+
+      - name: Push to docker registry
+        if: github.ref == 'refs/heads/main'
+        run: docker push ${{ secrets.ORGANIZATION }}/${{ secrets.REPO }}:latest
