@@ -33,6 +33,7 @@
     </li>
   <% end %>
 
+  <% if feature?(:polls) %>
   <li>
     <a href="#" class="booths-link"><%= t("admin.menu.title_booths") %></a>
     <%= link_list(
@@ -43,6 +44,7 @@
       id: "booths_menu", class: ("is-active" if booths?)
     ) %>
   </li>
+  <% end %>
 
   <% if feature?(:signature_sheets) %>
     <li class="<%= "is-active" if controller_name == "signature_sheets" %>">
