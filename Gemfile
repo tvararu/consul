@@ -70,6 +70,8 @@ source "https://rails-assets.org" do
 end
 
 group :development, :test do
+  gem "bcrypt_pbkdf", "~> 1"
+  gem "ed25519", "~> 1.2"
   gem "bullet", "~> 6.1.0"
   gem "byebug", "~> 11.1.3"
   gem "database_cleaner", "~> 1.8.5"
