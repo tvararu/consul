@@ -541,7 +541,9 @@ body > header,
   }
 
   .top-bar {
-    @extend %brand-background;
+    background-color: $white;
+    border-bottom: 1px solid $border;
+    color: $black;
   }
 }
 
