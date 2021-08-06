@@ -105,6 +105,10 @@ But for some actions like voting, you will need a verified user, the seeds file 
  **user:** verified@consul.dev
  **pass:** 12345678
 
+## Debugging
+
+The DelayedJobs process log can be found at `/home/deploy/consul/current/log/delayed_job.log`. 
+
 ## Configuration for production environments
 
 See [installer](https://github.com/consul/installer)
