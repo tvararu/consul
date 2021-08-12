@@ -1,0 +1,8 @@
+// Use code4ro-specific header colors
+$bright_grey: #eee;
+
+.top-bar {
+  background-color: $white !important;
+  border-bottom: 1px solid $bright_grey;
+  color: $black !important;
+}
