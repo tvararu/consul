@@ -1,0 +1,18 @@
+// Use code4ro-specific header colors
+$bright_grey: #eee;
+
+.top-bar {
+  background-color: $white !important;
+  border-bottom: 1px solid $bright_grey;
+  color: $black !important;
+}
+
+// Using 'Titillium' as it supports diacritics
+footer .logo a {
+  font-family: 'Titillium Web' !important;
+}
+
+// Lato vertically aligns the close button's 'x' to middle
+.close-button {
+  font-family: 'Lato';
+}
