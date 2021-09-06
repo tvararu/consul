@@ -1,0 +1,69 @@
+<div class="verification account row">
+  <% track_event(category: "verification", action: "start_census") %>
+  <div class="small-12 column">
+
+    <%= back_link_to account_path, t("verification.back") %>
+
+    <h1 class="d-block"><%= t("verification.residence.new.title") %></h1>
+
+    <div class="user-permissions small-12">
+
+      <p><%= t("verification.user_permission_info_budgets") %></p>
+      <hr/>
+
+    </div>
+
+    <%= form_for @residence, as: "residence", url: residence_path do |f| %>
+      <%= render "errors" %>
+
+      <div class="row">
+        <div class="small-12 medium-6 column">
+
+          <div class="inline-block">
+            <%= f.label t("verification.residence.new.document_number") %>
+          </div>
+
+          <button type="button" class="inline-block" data-toggle="info-document-number">
+            <span class="icon-help"></span>
+            <span class="show-for-sr"><%= t("verification.residence.new.document_number_help_title") %></span>
+          </button>
+
+          <div class="dropdown-pane" id="info-document-number" data-dropdown
+                data-hover="true" data-hover-pane="true">
+            <%= sanitize(t("verification.residence.new.document_number_help_text")) %>
+          </div>
+
+          <%= f.text_field :document_number, label: false %>
+        </div>
+      </div>
+
+      <%= fields_for @sms do |s| %>
+
+        <div class="small-12 medium-6">
+          <%= s.label :phone, t("verification.sms.new.phone"), class: "inline-block" %>
+          <p class="help-text" id="phone-text-help"><%= t("verification.sms.new.phone_note") %></p>
+          <%= s.text_field :phone, label: false,
+                                  aria: { describedby: "phone-help-text" } %>
+        </div>
+      <% end %>
+
+      <div class="small-12">
+        <%= f.check_box :terms_of_service,
+          title: t("verification.residence.new.accept_terms_text_title"),
+          label: t("verification.residence.new.accept_terms_all") %>
+        <%= raw t("verification.residence.new.accept_terms_row",
+          terms_url: link_to(t("verification.residence.new.terms"), "/census_terms",
+                              title: t("shared.target_blank"),
+                              target: "_blank"),
+          residence: Rails.configuration.deploy['city']
+          ) %>
+      </div>
+
+      <div class="small-12 medium-3 clear">
+        <%= f.submit t("verification.residence.new.verify_residence"),
+                     id: "new_residence_submit",
+                     class: "button success expanded" %>
+      </div>
+    <% end %>
+  </div>
+</div>

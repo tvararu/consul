@@ -46,10 +46,21 @@ ro:
           success: Adresă verificată
       new:
         accept_terms_text: Accept %{terms_url}
+        accept_terms_all: |
+          Sunt de acord cu toate afirmațiile de mai jos
+        # TODO: find a cleaner way to render this
+        accept_terms_row: |
+          <ul>
+            <li>Declar pe proprie răspundere că am împlinit 18 ani</li>
+            <li>Declar pe proprie răspundere că am reședinta temporară sau permanentă în %{residence}</li>
+            <li>Accept %{terms_url}</li>
+          </ul>
         accept_terms_text_title: Accept termenii și condițiile de acces al Recensământ-ului
-        document_number: Numărul documentului
+        accept_terms_residence: "Declar pe proprie răspundere că am reședinta temporară sau permanentă în "
+        accept_terms_age: "Declar pe proprie răspundere că am împlinit 18 ani"
+        document_number: Cod Numeric Personal (CNP)
         document_number_help_title: Ajutor
-        document_number_help_text: "<strong>DNI</strong>: 12345678A<br> <strong>Pașaport</strong>: AAA000001<br> <strong>Card de reședință</strong>: X1234567P"
+        document_number_help_text: "<strong>Exemplu CNP: 2900411192534</strong>"
         document_type:
           passport: Pașaport
           residence_card: Card de reședință
@@ -60,8 +71,8 @@ ro:
         form_errors: a împiedicat verificarea reședinței dumneavoastră
         postal_code_note: Pentru a vă verifica contul trebuie să vă înregistrați
         terms: termenii și condițiile de acces
-        title: Verificați reședința
-        verify_residence: Verificați reședința
+        title: Verificare cont
+        verify_residence: Verifică
     sms:
       create:
         flash:
@@ -72,9 +83,9 @@ ro:
         submit_button: Trimite
         title: Confirmare cod de securitate
       new:
-        phone: Introduceți numărul de telefon pentru a primi codul
+        phone: Număr de telefon
         phone_format: "<strong><em>(Exemplu: 612345678 sau +34612345678)</em></strong>"
-        phone_note: Folosim numărul dvs. de telefon doar pentru a vă trimite un cod, nu vă vom contacta niciodată.
+        phone_note: Introduceți numărul dumneavoastră de telefon
         phone_placeholder: "Exemplu: 612345678 sau +34612345678"
         submit_button: Trimite
         title: Trimite codul de confirmare
@@ -90,8 +101,9 @@ ro:
     step_3: Verificare finală
     user_permission_debates: Participați la dezbateri
     user_permission_info: Verificându-vă informațiile veți putea să...
+    user_permission_info_budgets: Verificându-vă informațiile veți avea acces la procesul de bugetare participativă
     user_permission_proposal: Creează noi propuneri
-    user_permission_support_proposal: Sprijină propunerile*
+    user_permission_support_proposal: Sprijiniți propunerile
     user_permission_votes: Participă la votarea finală*
     verified_user:
       form:
