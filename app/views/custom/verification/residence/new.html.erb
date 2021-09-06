@@ -14,6 +14,7 @@
     </div>
 
     <%= form_for @residence, as: "residence", url: residence_path do |f| %>
+
       <%= render "errors" %>
 
       <div class="row">
@@ -51,6 +52,7 @@
         <%= f.check_box :terms_of_service,
           title: t("verification.residence.new.accept_terms_text_title"),
           label: t("verification.residence.new.accept_terms_all") %>
+
         <%= raw t("verification.residence.new.accept_terms_row",
           terms_url: link_to(t("verification.residence.new.terms"), "/census_terms",
                               title: t("shared.target_blank"),

@@ -10,14 +10,13 @@ class Verification::Residence
   validates :document_number, presence: true
   validates :terms_of_service, acceptance: { allow_nil: false }
 
-  # Verify checkbox with TOS for residence
-  # validates :residence_tos, acceptance:  { allow_nil: false }
-  # validates :legal_age, acceptance: { allow_nil: false }
-
+  # Verify phone number
+  validates :phone, acceptance: { allow_nil: false }
   validate :document_number_uniqueness
+  validate :document_number_format
 
   def initialize(attrs = {})
-    self.date_of_birth = Date.new(2020, 1, 1) # TODO: get from CNP
+    self.date_of_birth = date_of_birth_from_document if document_number
     attrs = remove_date("date_of_birth", attrs)
     super
     clean_document_number
@@ -40,13 +39,19 @@ class Verification::Residence
   end
 
   def allowed_age
-    return if errors[:date_of_birth].any? || legal_age.valid?
+    return if errors[:date_of_birth].any?
 
     errors.add(:date_of_birth, I18n.t("verification.residence.new.error_not_allowed_age"))
   end
 
   def document_number_uniqueness
     errors.add(:document_number, I18n.t("errors.messages.taken")) if User.active.where(document_number: document_number).any?
+  end
+
+  def document_number_format
+    unless (is_number?(document_number) && document_number.size == 13)
+      errors.add(:document_number, I18n.t("errors.messages.invalid"))
+    end
   end
 
   def store_failed_attempt
@@ -63,8 +68,38 @@ class Verification::Residence
     Rails.configuration.deploy['city']
   end
 
+  def date_of_birth_from_document
+    day   = document_number[5..6].to_i
+    month = document_number[3..4].to_i
+    year  = document_number[1..2].to_i
+    year += case gender_digit
+      when 1..2
+        1900
+      when 3..4
+        1800
+      when 5..8
+        2000
+      end
+
+    Date.new(year, month, day)
+  end
+
+  def gender_digit
+    document_number.first.to_i
+  end
+
   def gender
-    1  # TODO: get from CNP
+    if [1, 3, 5, 7].include?(gender_digit)
+      return 'male'
+    elsif [2, 4, 6, 8].include?(gender_digit)
+      return 'female'
+    end
+
+    errors.add(:document_number, I18n.t("errors.messages.invalid"))
+  end
+
+  def is_number? string
+    true if Float(string) rescue false
   end
 
   private

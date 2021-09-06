@@ -22,6 +22,6 @@ class Verification::Sms
   end
 
   def verified?
-    phone.valid?
+    valid?
   end
 end
