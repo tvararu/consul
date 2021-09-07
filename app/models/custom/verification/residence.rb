@@ -108,6 +108,6 @@ class Verification::Residence
     end
 
     def clean_document_number
-      self.document_number = document_number.strip
+      self.document_number = document_number&.strip
     end
 end
