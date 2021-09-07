@@ -3,12 +3,15 @@ class Verification::Residence
   include ActiveModel::Dates
   include ActiveModel::Validations::Callbacks
 
-  attr_accessor :user, :document_number, :document_type, :date_of_birth, :postal_code, :terms_of_service
+  attr_accessor :user, :document_number, :document_type, :date_of_birth, :postal_code, :terms_of_service,
+    :adult, :resident
 
   before_validation :retrieve_census_data
 
   validates :document_number, presence: true
   validates :terms_of_service, acceptance: { allow_nil: false }
+  validates :adult, acceptance: { allow_nil: false }
+  validates :resident, acceptance: { allow_nil: false }
 
   validate :document_number_uniqueness
   validate :document_number_format

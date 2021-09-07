@@ -57,15 +57,17 @@
 
       <div class="small-12 mt-3">
         <%= f.check_box :terms_of_service,
-          title: t("verification.residence.new.accept_terms_text_title"),
-          label: t("verification.residence.new.accept_terms_all") %>
+          label: t("verification.residence.new.accept_terms_adult") %>
 
-        <%= raw t("verification.residence.new.accept_terms_row",
-          terms_url: link_to(t("verification.residence.new.terms"), "/census_terms",
+        <%= f.check_box :adult,
+          label: t("verification.residence.new.accept_terms_resident",
+                  residence: Rails.configuration.deploy['city']) %>
+
+        <%= f.check_box :resident,
+          label: t("verification.residence.new.accept_terms_terms",
+                  terms_url: link_to(t("verification.residence.new.terms"), "/census_terms",
                               title: t("shared.target_blank"),
-                              target: "_blank"),
-          residence: Rails.configuration.deploy['city']
-          ) %>
+                              target: "_blank")) %>
       </div>
 
       <div class="small-12 medium-3 clear">
