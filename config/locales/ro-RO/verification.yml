@@ -53,7 +53,7 @@ ro:
           <ul>
             <li>Declar pe proprie răspundere că am împlinit 18 ani</li>
             <li>Declar pe proprie răspundere că am reședinta temporară sau permanentă în %{residence}</li>
-            <li>Accept %{terms_url}</li>
+            <li>Accept %{terms_url} și politica de confidențialitate</li>
           </ul>
         accept_terms_text_title: Accept termenii și condițiile de acces al Recensământ-ului
         accept_terms_residence: "Declar pe proprie răspundere că am reședinta temporară sau permanentă în "
@@ -68,11 +68,13 @@ ro:
         error_not_allowed_age: Nu aveți vârsta necesară pentru a participa
         error_not_allowed_postal_code: Pentru a putea fi verificat, trebuie să aveți cont.
         error_verifying_census: Nu am reușit să verificăm informațiile. Rugăm să luați legătura cu un administrator.
-        form_errors: a împiedicat verificarea reședinței dumneavoastră
+        form_errors: Unele date introduse nu sunt valide
         postal_code_note: Pentru a vă verifica contul trebuie să vă înregistrați
         terms: termenii și condițiile de acces
         title: Verificare cont
         verify_residence: Verifică
+        help_needed: |
+          Dacă întâmpini probleme cu procesul de verificare, contactează-ne: %{email}
     sms:
       create:
         flash:
@@ -84,6 +86,7 @@ ro:
         title: Confirmare cod de securitate
       new:
         phone: Număr de telefon
+        phone_error: Număr de telefon invalid
         phone_format: "<strong><em>(Exemplu: 612345678 sau +34612345678)</em></strong>"
         phone_note: Introduceți numărul dumneavoastră de telefon
         phone_placeholder: "Exemplu: 612345678 sau +34612345678"
@@ -93,7 +96,7 @@ ro:
         error: Cod de confirmare incorect
         flash:
           level_three:
-            success: Cod corect. Contul dumneavoastră este acum verificat
+            success: Contul dumneavoastră este acum verificat
           level_two:
             success: Cod corect
     step_1: Reședință

@@ -10,19 +10,18 @@ class Verification::Residence
   validates :document_number, presence: true
   validates :terms_of_service, acceptance: { allow_nil: false }
 
-  # Verify phone number
-  validates :phone, acceptance: { allow_nil: false }
   validate :document_number_uniqueness
   validate :document_number_format
 
   def initialize(attrs = {})
-    self.date_of_birth = date_of_birth_from_document if document_number
     attrs = remove_date("date_of_birth", attrs)
     super
+
     clean_document_number
   end
 
   def save
+    self.date_of_birth = date_of_birth_from_document
     return false unless valid?
 
     user.take_votes_if_erased_document(document_number, document_type)
@@ -49,9 +48,13 @@ class Verification::Residence
   end
 
   def document_number_format
-    unless (is_number?(document_number) && document_number.size == 13)
+    unless looks_like_cnp? document_number
       errors.add(:document_number, I18n.t("errors.messages.invalid"))
     end
+  end
+
+  def looks_like_cnp? doc_num
+    is_number?(doc_num) && doc_num.size == 13 && doc_num[0] != '9'
   end
 
   def store_failed_attempt
@@ -59,16 +62,14 @@ class Verification::Residence
       user: user,
       document_number: document_number,
       document_type: document_type,
-      date_of_birth: date_of_birth,
+      date_of_birth: date_of_birth_from_document,
       postal_code: postal_code
     )
   end
 
-  def geozone
-    Rails.configuration.deploy['city']
-  end
-
   def date_of_birth_from_document
+    return unless looks_like_cnp? document_number
+
     day   = document_number[5..6].to_i
     month = document_number[3..4].to_i
     year  = document_number[1..2].to_i
@@ -81,7 +82,7 @@ class Verification::Residence
         2000
       end
 
-    Date.new(year, month, day)
+    Date.new(year, month, day) rescue errors.add(:document_number, I18n.t("errors.messages.invalid"))
   end
 
   def gender_digit
@@ -94,8 +95,6 @@ class Verification::Residence
     elsif [2, 4, 6, 8].include?(gender_digit)
       return 'female'
     end
-
-    errors.add(:document_number, I18n.t("errors.messages.invalid"))
   end
 
   def is_number? string
@@ -105,14 +104,10 @@ class Verification::Residence
   private
 
     def retrieve_census_data
-      @census_data = CensusCaller.new.call(document_type, document_number, date_of_birth, postal_code)
-    end
-
-    def residency_valid?
-      residence_tos.valid?
+      @census_data = CensusCaller.new.call(document_type, document_number, date_of_birth_from_document, postal_code)
     end
 
     def clean_document_number
-      self.document_number = document_number.gsub(/[^a-z0-9]+/i, "").upcase if document_number.present?
+      self.document_number = document_number.strip
     end
 end

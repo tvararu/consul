@@ -1,5 +1,11 @@
-production:
-  city: 'Brașov'
-
 development:
-  city: 'Brașov'
+  city: Brașov
+  support_email: contact@code4.ro
+
+staging:
+  city: Brașov
+  support_email: contact@code4.ro
+
+production:
+  city: Brașov
+  support_email: contact@code4.ro

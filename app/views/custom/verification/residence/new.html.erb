@@ -9,6 +9,10 @@
     <div class="user-permissions small-12">
 
       <p><%= t("verification.user_permission_info_budgets") %></p>
+      <p><%= raw t("verification.residence.new.help_needed",
+            email: mail_to(Rails.configuration.deploy['support_email'])
+          ) %>
+      </p>
       <hr/>
 
     </div>
@@ -18,7 +22,7 @@
       <%= render "errors" %>
 
       <div class="row">
-        <div class="small-12 medium-6 column">
+        <div class="small-12 medium-4 column">
 
           <div class="inline-block">
             <%= f.label t("verification.residence.new.document_number") %>
@@ -38,17 +42,20 @@
         </div>
       </div>
 
-      <%= fields_for @sms do |s| %>
+      <div class="row">
+        <%= fields_for @sms do |s| %>
 
-        <div class="small-12 medium-6">
-          <%= s.label :phone, t("verification.sms.new.phone"), class: "inline-block" %>
-          <p class="help-text" id="phone-text-help"><%= t("verification.sms.new.phone_note") %></p>
-          <%= s.text_field :phone, label: false,
-                                  aria: { describedby: "phone-help-text" } %>
-        </div>
-      <% end %>
+          <div class="small-12 medium-4 column">
+            <%= s.label :phone, t("verification.sms.new.phone"), class: "inline-block" %>
+            <p class="help-text" id="phone-text-help"><%= t("verification.sms.new.phone_note") %></p>
+            <%= s.telephone_field :phone, label: false,
+                                  aria: { describedby: "phone-help-text" }
+                                  %>
+          </div>
+        <% end %>
+      </div>
 
-      <div class="small-12">
+      <div class="small-12 mt-3">
         <%= f.check_box :terms_of_service,
           title: t("verification.residence.new.accept_terms_text_title"),
           label: t("verification.residence.new.accept_terms_all") %>
