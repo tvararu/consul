@@ -881,6 +881,12 @@ ro:
       private_activity: Acest utilizator a decis să își mențină activitatea privată.
       send_private_message: "Trimite mesaj privat"
       delete_alert: "Sigur doriți să ștergeți proiectul de investiții? Această acțiune nu poate fi anulată"
+      user_information: "Informații despre utilizator (vizibile doar pentru administratori)"
+      field: Câmp
+      value: Valoare
+      email: Email
+      document_number: CNP
+      phone_number: Număr de telefon
     proposals:
       retired: "Propunere retrasă"
       draft: Schiță
