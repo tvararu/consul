@@ -76,6 +76,7 @@ $foundation-palette: (
 $light-gray: #e6e6e6 !default;
 $medium-gray: #cacaca !default;
 $dark-gray: #8a8a8a !default;
+$darker-gray: #505a5f !default;
 $black: #0a0a0a !default;
 $white: #fefefe !default;
 $body-background: $white !default;
@@ -155,7 +156,7 @@ $header-styles: (
 ) !default;
 $header-text-rendering: optimizeLegibility !default;
 $small-font-size: 80% !default;
-$header-small-font-color: $medium-gray !default;
+$header-small-font-color: $darker-gray !default;
 $paragraph-lineheight: 1.6 !default;
 $paragraph-margin-bottom: 1rem !default;
 $paragraph-text-rendering: optimizeLegibility !default;
