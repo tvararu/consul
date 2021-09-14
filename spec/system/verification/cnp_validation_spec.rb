@@ -20,4 +20,19 @@ describe "CNP" do
 
     expect(page).to have_content "Account verified"
   end
+
+  scenario "Admin can view a user's document number, email, and phone number" do
+    document_number = "1870113780091"
+    email = "foo@bar.com"
+    phone_number = "0745123456"
+    user = create(:user, document_number: document_number, email: email, phone_number: phone_number)
+    admin = create(:administrator)
+    login_as(admin.user)
+
+    visit user_path(user)
+
+    expect(page).to have_content document_number
+    expect(page).to have_content email
+    expect(page).to have_content phone_number
+  end
 end
