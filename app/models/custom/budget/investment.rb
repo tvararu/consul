@@ -326,11 +326,11 @@ class Budget
     end
 
     def should_show_votes?
-      budget.selecting?
+      false
     end
 
     def should_show_vote_count?
-      budget.valuating?
+      false
     end
 
     def should_show_ballots?
